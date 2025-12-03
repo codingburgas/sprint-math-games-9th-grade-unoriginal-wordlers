@@ -1,5 +1,26 @@
-#include <iostream>
+#include <iostream>#include <string>
 using namespace std;
+string words["apple", "bread", "chair", "dance",
+        "flame", "grape", "heart", "image", "juice",
+        "knife", "lemon", "mouse", "night", "ocean",
+        "paint", "queen", "river", "stone", "table",
+        "urban", "voice", "water", "hater", "youth",
+        "zebra", "angel", "basic", "candy", "dream",
+        "earth", "faith", "giant", "happy", "ideal",
+        "jelly", "kitty", "light", "magic", "photo",
+        "olive", "peace", "quick", "royal", "sweet",
+        "tiger", "union", "piano", "whale", "yield",
+        "racer", "blank", "cloud", "radar", "prize",
+        "frost", "globe", "honey", "rifle", "joker",
+        "knock", "laugh", "miner", "north", "orbit",
+        "scrap", "quest", "rider", "shiny", "track",
+        "under", "valid", "wings", "xerox", "young",
+        "skull", "aroma", "beach", "crown", "daisy",
+        "sneak", "madam", "funny", "hills", "stack",
+        "judge", "kneel", "lucky", "meter", "ninth",
+        "opera", "pride", "quiet", "round", "floss"];
+
+
 
 void close(){
     cout << "Exiting....";
@@ -7,29 +28,28 @@ void close(){
     // незабавно затвяране на програмата 
 }
 
-void rules(){
-    cout << R"(
-    In Wordle, you have six attempts to guess a secret five-letter word. 
-    After each guess, the tiles change color to provide feedback: 
-    green means the letter is correct and in the right spot, 
-    yellow means the letter is in the word but in the wrong spot, 
-    and gray means the letter is not in the word at all. 
-    Each guess must be a valid five-letter word.
+void startGame(){
+    string guess;
+    int index = rand() % 94;
+    string randomWord = words[index];
     
-    type "ok" to continue;
-    )"
-    cin >> int afterRules;
+    cout << "First try, enter your word:" << endl;
+    cin >> guess;
+    
+    for (int i = 0; i < 5; i++){
+        char guessLetter = guess[i]; // променливата guessLetter взима стойноста на буквата на думата
+    }
 }
 
-void Menu(){
+
+void menu(){
     int choice;
-    // "R()" е лесен начин да се въведе текст, ако е на няколко реда
+    // R"()" е лесен начин да се въведе текст, ако е на няколко реда
     cout << R"( 
 
   --------------------------------------------------------------------
  |                         1. Start Game                              |
- |                         2. Rules                                   |
- |                         3. Exit                                    |
+ |                         2. Exit                                    |
   --------------------------------------------------------------------
 
  Choose option: )";
@@ -37,9 +57,7 @@ void Menu(){
     switch(choice){
         case 1: "startGame();";
         break;
-        case 2: "rules();";
-        break;
-        case 3: close();
+        case 2: close();
         break;
         default:
         break;
@@ -48,5 +66,5 @@ void Menu(){
 
 int main()
 {
-    Menu();
+    menu();
 }
